@@ -3,4 +3,4 @@
 *.log
 repositories
 keys
-.*pyc
+*.pyc

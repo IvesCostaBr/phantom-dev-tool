@@ -15,7 +15,7 @@ async def get_repo_tree(repo_name: str):
     return pipeline_runner("list_tree_repo", {"repo_name": repo_name})
 
 
-@router.get("/file/detail", response_model=respository.ResponseDetailFile)
+@router.get("/file/detail", response_model=list)
 async def detail_file(file_dir: str):
     return pipeline_runner("detail_file", {"file_dir": file_dir})
 

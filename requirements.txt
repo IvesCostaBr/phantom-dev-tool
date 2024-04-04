@@ -5,8 +5,9 @@ google-cloud-storage==2.10.0
 google-cloud==0.34.0
 google-cloud-secret-manager==2.16.4
 python-dotenv==1.0.1
-autopep
+autopep8
 black
 pymongo
 redis
 openai==1.0.0
+debugpy

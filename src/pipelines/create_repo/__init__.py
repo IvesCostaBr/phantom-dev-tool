@@ -7,7 +7,11 @@ def return_pipe(data):
         },
         {
             "name": "save_repo",
-            "provider": "create_repo",
+            "provider": "repo_data",
+            "condition": {
+                "step": "download_repository",
+                "value": True
+            }
             # "module": ""
         },
         {

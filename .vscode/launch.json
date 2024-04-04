@@ -18,5 +18,18 @@
             "jinja": true,
             "justMyCode": true
         },
+        {
+            "name": "Debug Container Api",
+            "type": "python",
+            "request": "attach",
+            "port": 5678,
+            "host": "localhost",
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "/code"
+                }
+            ]
+        }
     ]
 }

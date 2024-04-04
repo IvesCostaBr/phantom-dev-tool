@@ -6,11 +6,13 @@ def return_pipe(data):
             "module": "get_repo",
         },
         {
-            "name": "commit_and_push",
+            "name": "process_tree_repository",
             "provider": "command",
-            "module": "commit",
+            "module": "revert_changes"
         },
-
+        # {
+        #     "name": "save depository data"
+        # },
         {
             "name": "response",
             "provider": "response",

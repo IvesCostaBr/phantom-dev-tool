@@ -7,8 +7,12 @@ def exec(data):
                                            data.get("payload").get("repo_name"))
 
     arquivos = []
-    for pasta_raiz, _, arquivos_na_pasta in os.walk(root_dir):
-        for arquivo in arquivos_na_pasta:
-            caminho_completo = os.path.join(pasta_raiz, arquivo)
-            arquivos.append(caminho_completo)
+    for root_path, _, files_folder in os.walk(root_dir):
+        for arquivo in files_folder:
+            full_path = os.path.join(root_path, arquivo)
+            path_splited = full_path.split(
+                f"{os.environ.get('PROJECT_NAME')}/repositories")
+            for each in [".git/"]:
+                if not each in path_splited[1]:
+                    arquivos.append(path_splited[1])
     return arquivos

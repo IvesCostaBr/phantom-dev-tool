@@ -1,4 +1,5 @@
 from src.driver.executor import executor
+from src.repository import log_repo
 import time
 from copy import deepcopy
 from src.utils import show_log
@@ -61,4 +62,6 @@ def pipeline_runner(pipeline: str, data=None):
     elapsed_time = round(end_time - pipeline_time, 5)
     show_log(
         "Pipeline Finished -> {} - time exec -> {} sec. ".format(pipeline, elapsed_time))
+
+    log_repo.create(data=pipeline_data)
     return pipeline_data["response"].get("data")

@@ -5,8 +5,8 @@ class InRepository(BaseModel):
 
     repo_url: str
     name: str
-    banch: str
-    key: str = None
+    branch: str
+    key: list[str] = None
 
 
 class UpdateFile(BaseModel):

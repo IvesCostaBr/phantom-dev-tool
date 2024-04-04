@@ -1,0 +1,36 @@
+networks:
+  internal-net:
+    external: true
+    driver: bridge
+
+services:
+  api:
+    image: api:latest
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: phantom-dev-api
+    restart: always
+    ports:
+      - 8000:8000
+      - 5678:5678
+    volumes:
+      - .:/code
+    env_file:
+      - ./.env
+    networks:
+      - internal-net
+
+  mongo:
+    image: mongo
+    depends_on:
+      - api
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: MongoDB2019!
+    ports:
+      - "27017:27017"
+    volumes:
+      - /home/renatogroffe/Desenvolvimento/Docker/Volumes/MongoDB:/data/db
+    networks:
+      - internal-net

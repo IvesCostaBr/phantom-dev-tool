@@ -28,3 +28,8 @@ Trata-se um projeto voltado a correção e validação de condigo server side
 ## Contato
 
 ....
+
+
+gerar a chave 
+iniciar o agente ssh eval $(ssh-agent)
+adicionar a chave no agente ssh ssh-add  ~/.ssh/default

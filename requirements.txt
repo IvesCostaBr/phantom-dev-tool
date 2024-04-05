@@ -11,3 +11,4 @@ pymongo
 redis
 openai==1.0.0
 debugpy
+GitPython

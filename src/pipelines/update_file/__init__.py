@@ -1,6 +1,11 @@
 def return_pipe(data):
     return [
         {
+            "name": "get_repo",
+            "provider": "repo_data",
+            "module": "get_repo",
+        },
+        {
             "name": "file_content",
             "provider": "file_content",
             # "module": ""

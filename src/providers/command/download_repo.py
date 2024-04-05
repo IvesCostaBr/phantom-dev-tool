@@ -8,21 +8,16 @@ def exec(data):
                                             data.get('payload').get('name'))
 
     branch = data.get("payload").get("branch")
-    key = data.get('payload').get('key')
-    if key:
-        path_key = f"{ROOT_PATH}/keys/{data.get('payload').get('name')}"
-        with open(path_key, "w") as file:
-            file.write('\n'.join(key))
-
-    ssh_comand = "GIT_SSH_COMMAND='ssh -i {}'".format(
-        path_key) if key else ''
-
-    clone_command = f'{ssh_comand} git clone {data.get("payload").get("repo_url")} "{path_repo}"'
+    add_key_agent = "eval $(ssh-agent) && ssh-add ~/.ssh/default"
+    clone_command = f'{add_key_agent} && git clone {data.get("payload").get("repo_url")} "{path_repo}"'
 
     result = subprocess.run(clone_command, shell=True,
                             capture_output=True, text=True)
     if result.returncode in [1, 128]:
         raise Exception("error in clone repo")
+
+    result = subprocess.run('git config --global user.email "ivespauiniam@gmail.com" && git config --global user.name "Ives Costa"', shell=True,
+                            capture_output=True, text=True)
 
     if branch:
         command = f"cd {path_repo} && git checkout {branch}"

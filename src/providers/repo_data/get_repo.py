@@ -2,7 +2,7 @@ from src.repository import code_repo
 
 
 def exec(data):
-    data = code_repo.filter_query(namme=data.get("payload").get("repo_name"))
-    if not data:
+    result = code_repo.filter_query(name=data.get("payload").get("repo_name"))
+    if not result:
         return None
-    return data[0]
+    return result[0]

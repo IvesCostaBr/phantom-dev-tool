@@ -15,6 +15,11 @@ async def create_repo(data: respository.InRepository):
     return response
 
 
+@router.get("/keys/default")
+async def get_public_key():
+    return pipeline_runner("get_public_key", {})
+
+
 @router.get("/{repo_name}")
 async def get_repo_tree(repo_name: str):
     return pipeline_runner("list_tree_repo", {"repo_name": repo_name})

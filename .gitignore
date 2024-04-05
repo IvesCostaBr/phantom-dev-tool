@@ -2,5 +2,5 @@
 *.env
 *.log
 repositories
-keys
+# keys
 *.pyc

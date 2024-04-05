@@ -1,5 +1,5 @@
 import os
-from fastapi import FastAPI, Request, responses
+from fastapi import FastAPI, Request, responses, WebSocket
 from src.api.routes import repository
 from src.utils import logger
 from dotenv import load_dotenv
@@ -10,7 +10,7 @@ load_dotenv()
 
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 
-api = FastAPI(title="Pipeline Project")
+api = FastAPI(title="Panthom DEV Tool", version="0.1")
 
 logger.info("Ui")
 
@@ -24,3 +24,11 @@ async def exception_handler(request: Request, exc: Exception):
         status_code=status.HTTP_400_BAD_REQUEST,
         content={"message": str(exc)},
     )
+
+
+@api.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    await websocket.accept()
+    while True:
+        data = await websocket.receive_text()
+        await websocket.send_text(f"Message text was: {data}")

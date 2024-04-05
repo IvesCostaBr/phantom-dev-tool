@@ -3,9 +3,12 @@ from main import ROOT_PATH
 
 
 def exec(data):
+    exists_repo = data.get("get_repo").get("data")
+    if exists_repo:
+        raise Exception("repository already exists")
     path_key = None
     path_repo = "{}/repositories/{}".format(ROOT_PATH,
-                                            data.get('payload').get('name'))
+                                            data.get('payload').get('repo_name'))
 
     branch = data.get("payload").get("branch")
     add_key_agent = "eval $(ssh-agent) && ssh-add ~/.ssh/default"

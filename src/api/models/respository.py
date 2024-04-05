@@ -4,7 +4,7 @@ from pydantic import BaseModel, root_validator, Field
 class InRepository(BaseModel):
 
     repo_url: str
-    name: str
+    repo_name: str
     branch: str
     key: list[str] = None
 

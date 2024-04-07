@@ -12,14 +12,12 @@ def exec(data):
     extension = None
     if len(dir_splited) == 1:
         temp_dir = dir_splited[0] + '_temp'
-        temp_dir = '{}/repositories/{}'.format(ROOT_PATH, temp_dir)
-        original_dir = '{}/repositories/{}'.format(ROOT_PATH, file_dir)
     else:
         temp_dir = file_dir + '_temp'
         extension = dir_splited[-1:][0]
 
-        temp_dir = '{}/repositories{}'.format(ROOT_PATH, temp_dir)
-        original_dir = '{}/repositories{}'.format(ROOT_PATH, file_dir)
+    temp_dir = '{}/repositories/{}'.format(ROOT_PATH, temp_dir)
+    original_dir = '{}/repositories/{}'.format(ROOT_PATH, file_dir)
 
     repo_dir = '{}/repositories/{}'.format(ROOT_PATH, repo_data.get('name'))
     subprocess.run(f"cd {repo_dir} && git checkout {repo_data.get('branch')}",

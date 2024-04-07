@@ -10,7 +10,7 @@ def exec(data):
     repo_dir = '{}/repositories/{}'.format(ROOT_PATH,
                                            data.get("payload").get("repo_name"))
 
-    file_dir = '{}/repositories{}'.format(ROOT_PATH, file_name)
+    file_dir = '{}/repositories/{}'.format(ROOT_PATH, file_name)
 
     try:
 

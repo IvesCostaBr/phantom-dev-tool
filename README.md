@@ -16,7 +16,7 @@ Trata-se um projeto voltado a correção e validação de código server side.
 
 ## Licença
 
-Copyright (c) [year], [Ives Costa]
+Copyright (c) 2024, [Ives Costa]
 Este projeto está licenciado sob a [Licença BSD](https://pt.wikipedia.org/wiki/Licen%C3%A7a_BSD).
 
 ## Contato

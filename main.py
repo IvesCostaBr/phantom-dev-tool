@@ -1,5 +1,6 @@
 import os
 from fastapi import FastAPI, Request, responses, WebSocket
+from fastapi.middleware.cors import CORSMiddleware
 from src.api.routes import repository
 from src.utils import logger
 from dotenv import load_dotenv
@@ -15,6 +16,14 @@ api = FastAPI(title="Panthom DEV Tool", version="0.1")
 logger.info("Ui")
 
 api.include_router(repository.router, prefix="/repositorys")
+api.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+    expose_headers=["X-Custom-Header", "Consumer"],
+)
 
 
 @api.exception_handler(Exception)

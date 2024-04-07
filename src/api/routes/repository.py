@@ -26,8 +26,8 @@ async def get_repo_tree(repo_name: str):
 
 
 @router.get("/file/detail", response_model=list)
-async def detail_file(file_dir: str):
-    return pipeline_runner("detail_file", {"file_dir": file_dir})
+async def detail_file(file_dir: str, repo_name: str):
+    return pipeline_runner("detail_file", {"file_dir": file_dir, "repo_name": repo_name})
 
 
 @router.get("")
@@ -56,6 +56,14 @@ async def commit_repo(repo_name: str):
 @router.post("/auto-change")
 async def auto_change(data: respository.AutoReplace):
     response = pipeline_runner("auto_update", data.model_dump())
+    if response.get("errors"):
+        return JSONResponse(response, status_code=status.HTTP_400_BAD_REQUEST)
+    return response
+
+
+@router.patch("/pull")
+async def pull_repository(repo_name: str):
+    response = pipeline_runner("pull", {"repo_name": repo_name})
     if response.get("errors"):
         return JSONResponse(response, status_code=status.HTTP_400_BAD_REQUEST)
     return response

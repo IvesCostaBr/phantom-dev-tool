@@ -5,6 +5,11 @@ def return_pipe(data):
             "provider": "repo_data",
             "module": "get_repo",
         },
+        # {
+        #     "name": "pull",
+        #     "provider": "command",
+        #     "module": "pull",
+        # },
         {
             "name": "file_content",
             "provider": "file_content",

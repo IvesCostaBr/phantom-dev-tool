@@ -6,16 +6,13 @@ def return_pipe(data):
             "module": "get_repo",
         },
         {
-            "name": "file_content",
-            "provider": "file_content",
-            # "module": ""
+            "name": "pull",
+            "provider": "command",
+            "module": "pull",
         },
-        # {
-        #     "name": "save depository data"
-        # },
         {
             "name": "response",
             "provider": "response",
-            "module": "response_file_content"
+            "module": "response_complete"
         }
     ]

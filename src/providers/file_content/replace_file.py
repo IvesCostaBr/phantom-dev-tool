@@ -2,6 +2,7 @@ import os
 import uuid
 from datetime import datetime
 from git import Repo
+import subprocess
 from main import ROOT_PATH
 
 
@@ -11,6 +12,10 @@ def exec(data):
     repo = Repo(
         f"{ROOT_PATH}/repositories/{data.get('payload').get('repo_name')}")
     branch = data.get("get_repo").get("data")
+    repo.git.checkout(branch.get("branch"))
+
+    # subprocess.call()
+
     if not data.get("validate_file").get("status"):
         os.remove(dirs.get("temp_dir"))
 
@@ -18,7 +23,6 @@ def exec(data):
 
     commit_msg = f"{uuid.uuid4()}-{datetime.now()}"
 
-    repo.git.checkout(branch.get("branch"))
     repo.git.add(dirs.get("original_dir"))
     repo.git.commit(m=commit_msg)
 

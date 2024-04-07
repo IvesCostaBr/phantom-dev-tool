@@ -1,35 +1,25 @@
-# Nome do Projeto
-
-phantom-corrector-tool
+# Phantom Dev Tool
 
 ## Sobre
 
-Trata-se um projeto voltado a correção e validação de condigo server side
+Trata-se um projeto voltado a correção e validação de código server side.
 
 ## Tecnologias Utilizadas
 
-- Tecnologia 1
-- Tecnologia 2
-- Tecnologia 3
+- MongoDB
+- Python
+- FastApi
 
 ## Instalação
 
-- Crie um virtual env python com o comento `python -m venv venv`
-- Ative sua venv source ./venv/bin/activate
-
-## Contribuição
-
-....
+- Com o docker instalado basta rodar o comando `docker-compose build --no-cache && docker-compose up`
 
 ## Licença
 
-....
+Copyright (c) [year], [Ives Costa]
+Este projeto está licenciado sob a [Licença BSD](https://pt.wikipedia.org/wiki/Licen%C3%A7a_BSD).
 
 ## Contato
 
-....
-
-
-gerar a chave 
-iniciar o agente ssh eval $(ssh-agent)
-adicionar a chave no agente ssh ssh-add  ~/.ssh/default
+Email: <ivespauiniam@gmail.com>
+Linkedin: <https://www.linkedin.com/in/ives-costa-082274183/>

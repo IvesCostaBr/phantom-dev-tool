@@ -35,6 +35,7 @@ class AutoReplace(BaseModel):
     Caso você queira sommente o rafactor basta não preencher o campo 'problem'.
     No caso de correção informe o problema a qual queira corrigir dentro do arquivo.
     """
+    repo_name: str
     type: str = Field("fix", examples=["fix", "refact"])
     problem: str = None
     file_dir: str

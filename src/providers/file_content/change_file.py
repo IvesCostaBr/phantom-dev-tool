@@ -1,5 +1,4 @@
 def exec(data):
-    file_dir = data.get("payload").get("file_dir")
     start_line = data.get("payload").get("start")
     end_line = data.get("payload").get("end")
     new_code = data.get("payload").get("code")

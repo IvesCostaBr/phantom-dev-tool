@@ -23,3 +23,17 @@ Este projeto está licenciado sob a [Licença BSD](https://pt.wikipedia.org/wiki
 
 Email: <ivespauiniam@gmail.com>
 Linkedin: <https://www.linkedin.com/in/ives-costa-082274183/>
+
+
+.env
+```bash
+CACHE_TYPE="redis"
+REDIS_URL="redis://default:cpktnwt00123@35.222.111.156:6379/2"
+MONGO_HOST='mongodb://root:MongoDB2019!@mongo/?retryWrites=true&w=majority'
+MONGO_PORT=27017
+OPENAI_KEY=''
+# PROJECT_NAME="phantom-dev-tool"
+# se você está rodando a aplicação em container deixar o nome do projeto como code
+PROJECT_NAME="code"
+ENVIRONMENT="STG"
+```

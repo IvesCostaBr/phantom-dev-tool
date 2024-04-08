@@ -28,7 +28,7 @@ Linkedin: <https://www.linkedin.com/in/ives-costa-082274183/>
 .env
 ```bash
 CACHE_TYPE="redis"
-REDIS_URL="redis://default:cpktnwt00123@35.222.111.156:6379/2"
+REDIS_URL=""
 MONGO_HOST='mongodb://root:MongoDB2019!@mongo/?retryWrites=true&w=majority'
 MONGO_PORT=27017
 OPENAI_KEY=''
